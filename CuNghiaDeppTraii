@@ -1,0 +1,54 @@
+local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
+local Window = OrionLib:MakeWindow({Name = "Phạm Nghĩa 🍏", HidePremium = false, SaveConfig = true, ConfigFolder = "PhanNghiaConfig"})
+
+-- Tab Auto Farm
+local AutoFarmTab = Window:MakeTab({
+	Name = "Auto Farm",
+	Icon = "rbxassetid://77865014424955",
+	PremiumOnly = false
+})
+
+AutoFarmTab:AddSection({Name = "Farm"})
+AutoFarmTab:AddToggle({
+	Name = "Auto Farm Level",
+	Default = false,
+	Callback = function(Value)
+		_G.AutoFarm = Value
+		while _G.AutoFarm do
+			wait()
+			-- Thêm script farm ở đây
+		end
+	end
+})
+
+-- Tab Auto Boss
+local BossTab = Window:MakeTab({
+	Name = "Auto Boss",
+	Icon = "rbxassetid://77865014424955",
+	PremiumOnly = false
+})
+
+BossTab:AddButton({
+	Name = "Auto Kill Boss [Saber, Buddha, v.v...]",
+	Callback = function()
+        -- Script Auto Boss ở đây
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/Blox-Fruit-Scripts/main/AutoBoss.lua"))()
+	end
+})
+
+-- Tab Teleport
+local TeleportTab = Window:MakeTab({
+	Name = "Teleport",
+	Icon = "rbxassetid://77865014424955",
+	PremiumOnly = false
+})
+
+TeleportTab:AddButton({
+	Name = "Teleport tới Sea 2",
+	Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5677, 300, 5000) -- Vị trí đảo chuyển Sea
+	end
+})
+
+-- Load GUI
+OrionLib:Init()
